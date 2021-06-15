@@ -3,11 +3,11 @@
         <h1>{{ result }}</h1>
         <form v-on:submit="onSubmitForm">
             <input ref="answer" maxlength="4" v-model="value" />
-            <button type="submit">입력111</button>
+            <button type="submit">입력</button>
         </form>
         <div>시도: {{tries.length}}</div>
         <ul>
-            <li v-for="t in tries">
+            <li v-for="t in tries" :key="t.try">
                 <div>{{t.try}}</div>
                 <div>{{t.result}}</div>
             </li>
