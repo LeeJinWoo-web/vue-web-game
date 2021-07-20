@@ -11,8 +11,7 @@
 </template>
 
 <script>
-    import LottoBall from './LottoBall.vue';
-
+    import LottoBall from './LottoBall'
     function getWinNumbers() {
         const candidate = Array(45).fill().map((v, i) => i + 1);
         const shuffle = [];
@@ -36,8 +35,16 @@
                 redo: false,
             }
         },
-        watch() {
-
+        watch: {//DATA가 변경되면 실행된다
+            bonus(val, oldVal) {
+                console.log(val.oldVal)
+                if(val === null) {
+                    this.showBalls();
+                }
+            },
+            redo(val, oldVal){
+                console.log(val, oldVal)
+            },
         },
         methods: {
             onClickRedo() {
@@ -45,7 +52,7 @@
                 this.winBalls = [];
                 this.bonus = null;
                 this.redo = false;
-                this.showBalls();
+                //this.showBalls();
             },
             showBalls() {
                 for (let i = 0; i< this.winNumbers.length - 1; i++){

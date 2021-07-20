@@ -10,6 +10,7 @@ export default {
     },
     computed: {
         styleObject() {
+            console.log(this.number)
             let background;
             if(this.number <= 10) {
                 background = 'red';
@@ -22,7 +23,6 @@ export default {
             } else {
                 background = 'green';
             }
-            console.log({background})
             return {
                 background,
             };
